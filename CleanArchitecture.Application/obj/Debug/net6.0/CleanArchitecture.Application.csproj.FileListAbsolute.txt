@@ -1,0 +1,12 @@
+C:\Git\CleanArchitecture\CleanArchitecture.Application\bin\Debug\net6.0\CleanArchitecture.Application.deps.json
+C:\Git\CleanArchitecture\CleanArchitecture.Application\bin\Debug\net6.0\CleanArchitecture.Application.dll
+C:\Git\CleanArchitecture\CleanArchitecture.Application\bin\Debug\net6.0\ref\CleanArchitecture.Application.dll
+C:\Git\CleanArchitecture\CleanArchitecture.Application\bin\Debug\net6.0\CleanArchitecture.Application.pdb
+C:\Git\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net6.0\CleanArchitecture.Application.csproj.AssemblyReference.cache
+C:\Git\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net6.0\CleanArchitecture.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net6.0\CleanArchitecture.Application.AssemblyInfoInputs.cache
+C:\Git\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net6.0\CleanArchitecture.Application.AssemblyInfo.cs
+C:\Git\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net6.0\CleanArchitecture.Application.csproj.CoreCompileInputs.cache
+C:\Git\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net6.0\CleanArchitecture.Application.dll
+C:\Git\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net6.0\ref\CleanArchitecture.Application.dll
+C:\Git\CleanArchitecture\CleanArchitecture.Application\obj\Debug\net6.0\CleanArchitecture.Application.pdb

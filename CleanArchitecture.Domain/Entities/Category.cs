@@ -1,22 +1,31 @@
+using CleanArchitecture.Domain.Validators;
+
 namespace CleanArchitecture.Domain.Entities;
 
-public sealed class Category
+public sealed class Category : EntityBase
 {
-    public int Id { get; private set; }
-    public string Name { get; private set; }
+    public string? Name { get; private set; }
 
     public ICollection<Product>? Products { get; set; }
 
     public Category(string name)
     {
-        Name = name;
+        ValidateName(name);
     }
 
-    private void ValidateDomain(string name)
+    public Category(int id, string name)
     {
-        DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Name is required.");
-        DomainExceptionValidation.When(name.Length < 3, "Invalid name. Too short, minimum 3 characters.");
+        Id = IdValidator.Validate(id);
+        ValidateName(name);
+    }
 
-        Name = name;
+    public void Update(string name)
+    {
+        ValidateName(name);
+    }
+
+    private void ValidateName(string name)
+    {
+        Name = StringPropertieValidator.Validate(name);
     }
 }

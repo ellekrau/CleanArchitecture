@@ -1,37 +1,62 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "CleanArchitecture.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/CleanArchitecture.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CleanArchitecture.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CleanArchitecture.Domain/1.0.0": {
+      "type": "project",
+      "path": "../CleanArchitecture.Domain/CleanArchitecture.Domain.csproj",
+      "msbuildProject": "../CleanArchitecture.Domain/CleanArchitecture.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "CleanArchitecture.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\ellek\\.nuget\\packages\\": {}
+    "C:\\Users\\adrielle.krauchuki\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Git\\CleanArchitecture\\CleanArchitecture.Application\\CleanArchitecture.Application.csproj",
+      "projectUniqueName": "C:\\Git\\Pessoal\\Udemy\\CleanArchitecture\\CleanArchitecture.Application\\CleanArchitecture.Application.csproj",
       "projectName": "CleanArchitecture.Application",
-      "projectPath": "C:\\Git\\CleanArchitecture\\CleanArchitecture.Application\\CleanArchitecture.Application.csproj",
-      "packagesPath": "C:\\Users\\ellek\\.nuget\\packages\\",
-      "outputPath": "C:\\Git\\CleanArchitecture\\CleanArchitecture.Application\\obj\\",
+      "projectPath": "C:\\Git\\Pessoal\\Udemy\\CleanArchitecture\\CleanArchitecture.Application\\CleanArchitecture.Application.csproj",
+      "packagesPath": "C:\\Users\\adrielle.krauchuki\\.nuget\\packages\\",
+      "outputPath": "C:\\Git\\Pessoal\\Udemy\\CleanArchitecture\\CleanArchitecture.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ellek\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\adrielle.krauchuki\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Git\\Pessoal\\Udemy\\CleanArchitecture\\CleanArchitecture.Domain\\CleanArchitecture.Domain.csproj": {
+              "projectPath": "C:\\Git\\Pessoal\\Udemy\\CleanArchitecture\\CleanArchitecture.Domain\\CleanArchitecture.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -58,7 +83,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

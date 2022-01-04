@@ -2,19 +2,25 @@
 {
     public class StringPropertieValidator
     {
-        public static string Validate(string propertie, int? minChar = null, int? maxChar = null)
+        public static void Validate(string propertie, int? minChar = null, int? maxChar = null)
         {
-            propertie = propertie.ToUpper();
-
-            DomainExceptionValidation.When(string.IsNullOrEmpty(propertie), $"{propertie} cannot be empty");
+            DomainExceptionValidation.When(string.IsNullOrEmpty(propertie), $"{propertie.ToUpper()} cannot be empty");
 
             if (minChar.HasValue)
-                DomainExceptionValidation.When(propertie.Length < minChar, $"Minimum {minChar} characters in {propertie}");
+                MinCharValidate(propertie, minChar.Value);
 
             if (maxChar.HasValue)
-                DomainExceptionValidation.When(propertie.Length > minChar, $"Maximum {minChar} characters in {propertie}");
+                MaxCharValidate(propertie, maxChar.Value);
+        }
 
-            return propertie;
+        public static void MinCharValidate(string propertie, int minChar)
+        {
+            DomainExceptionValidation.When(propertie.Length < minChar, $"Minimum {minChar} characters in {propertie.ToUpper()}");
+        }
+
+        public static void MaxCharValidate(string propertie, int maxChar)
+        {
+            DomainExceptionValidation.When(propertie.Length > maxChar, $"Minimum {maxChar} characters in {propertie.ToUpper()}");
         }
     }
 }

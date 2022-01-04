@@ -1,4 +1,15 @@
-public abstract class EntityBase
+namespace CleanArchitecture.Domain.Entities
 {
-    public int Id { get; protected set; }
+    public abstract class EntityBase
+    {
+        public int Id { get; protected set; }
+
+        protected void ValidateId(int id)
+        {
+            DomainExceptionValidation.When(id < 0, "Invalid ID value");
+        }
+
+        protected static string InvalidValueMessage(string value) =>
+            $"Invalid value in {value.ToUpper()}";
+    }
 }

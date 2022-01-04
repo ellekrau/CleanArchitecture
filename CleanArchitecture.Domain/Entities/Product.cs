@@ -19,7 +19,7 @@ public class Product : EntityBase
 
     public Product(int id, string name, string description, decimal price, int stock, string image)
     {
-        Id = IdValidator.Validate(id);
+        ValidateId(id);
         ValidateDomain(name, description, price, stock, image);
     }
 
@@ -30,20 +30,41 @@ public class Product : EntityBase
     }
 
     private void ValidateDomain(string name, string description, decimal price, int stock, string image)
-    {''
-        static string InvalidValueIn(string value) =>
-            $"Invalid value in {value.ToUpper()}";
+    {
+        ValidateName(name);
+        ValidateDescription(description);
+        ValidatePrice(price);
+        ValidateStock(stock);
+        ValidateImage(image);
+    }
 
-        Name = StringPropertieValidator.Validate(name, 2);
-        Description = StringPropertieValidator.Validate(description, 5);
-
-        DomainExceptionValidation.When(price < 0, InvalidValueIn(nameof(price)));
-        Price = price;
-
-        DomainExceptionValidation.When(stock < 0, InvalidValueIn(nameof(stock)));
-        Stock = stock;
-
-        DomainExceptionValidation.When(image.Length > 255, "Maximum 250 characters in IMAGE name");
+    private void ValidateImage(string image)
+    {
+        StringPropertieValidator.MaxCharValidate(image, 255);
         Image = image;
+    }
+
+    private void ValidateStock(int stock)
+    {
+        DomainExceptionValidation.When(stock < 0, InvalidValueMessage(nameof(stock)));
+        Stock = stock;
+    }
+
+    private void ValidatePrice(decimal price)
+    {
+        DomainExceptionValidation.When(price < 0, InvalidValueMessage(nameof(price)));
+        Price = price;
+    }
+
+    private void ValidateDescription(string description)
+    {
+        StringPropertieValidator.Validate(description, 5);
+        Description = description;
+    }
+
+    private void ValidateName(string name)
+    {
+        StringPropertieValidator.Validate(name, 2);
+        Name = name;
     }
 }

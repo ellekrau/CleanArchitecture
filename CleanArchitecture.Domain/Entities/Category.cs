@@ -15,7 +15,7 @@ public sealed class Category : EntityBase
 
     public Category(int id, string name)
     {
-        Id = IdValidator.Validate(id);
+        ValidateId(id);
         ValidateName(name);
     }
 
@@ -26,6 +26,7 @@ public sealed class Category : EntityBase
 
     private void ValidateName(string name)
     {
-        Name = StringPropertieValidator.Validate(name);
+        StringPropertieValidator.Validate(name);
+        Name = name;
     }
 }

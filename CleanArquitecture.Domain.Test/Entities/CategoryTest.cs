@@ -1,6 +1,5 @@
 ﻿using CleanArchitecture.Domain.Entities;
 using FluentAssertions;
-using System;
 using Xunit;
 
 namespace CleanArquitecture.Domain.Test.Entities

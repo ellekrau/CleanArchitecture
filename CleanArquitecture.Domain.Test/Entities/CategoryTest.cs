@@ -7,13 +7,12 @@ namespace CleanArquitecture.Domain.Test.Entities
 {
     public class CategoryTest
     {
-        [Fact(DisplayName = "Constructor with ID: Create category with valid state")]
+        [Fact(DisplayName = "Constructor with ID: Create with valid state")]
         public void ConstructorWithId_WithValidParameters_ResultObjectWithValidState()
         {
             var action = () => new Category(10, "Category name");
 
-            action
-                .Should()
+            action.Should()
                 .NotThrow<DomainExceptionValidation>();
         }
 
@@ -27,36 +26,33 @@ namespace CleanArquitecture.Domain.Test.Entities
                 .WithMessage("Invalid ID value");
         }
 
-        [Fact(DisplayName = "Constructor: Create category with valid state")]
-        public void Construcor_WithValidParameters_ResultObjectWithValidState()
+        [Fact(DisplayName = "Constructor: Create with valid state")]
+        public void Constructor_WithValidParameters_ResultObjectWithValidState()
         {
             var action = () => new Category("Category name");
 
-            action
-                .Should()
+            action.Should()
                 .NotThrow<DomainExceptionValidation>();
         }
 
         [Theory(DisplayName = "Constructor: NAME null or empty must throw DomainExceptionValidation")]
         [InlineData((""))]
         [InlineData(null)]
-        public void Construcor_WithNullAndEmptyName_ThrowDomainExceptionValidation(string categoryName)
+        public void Constructor_WithNullOrEmptyName_ThrowDomainExceptionValidation(string categoryName)
         {
             var action = () => new Category(categoryName);
 
-            action
-                .Should()
+            action.Should()
                 .Throw<DomainExceptionValidation>()
                 .WithMessage("NAME cannot be empty");
         }
 
-        [Fact(DisplayName = "Constructor: NAME must have at least 3 characters")]
-        public void Constructor_WithFewCaractereInName_ThrowDomainExceptionValidation()
+        [Fact(DisplayName = "Constructor: NAME must have at least 3 characters, throw DomainExceptionValidation")]
+        public void Constructor_WithFewCaracteresInName_ThrowDomainExceptionValidation()
         {
             var action = () => new Category("na");
 
-            action
-                .Should()
+            action.Should()
                 .Throw<DomainExceptionValidation>()
                 .WithMessage("Min 3 characters in NAME");
         }

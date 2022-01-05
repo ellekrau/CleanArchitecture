@@ -4,7 +4,7 @@ namespace CleanArchitecture.Domain.Entities
     {
         public int Id { get; protected set; }
 
-        protected void ValidateId(int id)
+        protected static void ValidateId(int id)
         {
             DomainExceptionValidation.When(id < 0, "Invalid ID value");
         }

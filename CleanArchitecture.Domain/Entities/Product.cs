@@ -40,7 +40,7 @@ public class Product : EntityBase
 
     private void ValidateImage(string image)
     {
-        StringPropertieValidator.MaxCharValidate(image, nameof(Image), 255);
+        StringPropertieValidator.MaxCharValidate(image, nameof(Image), 50);
         Image = image;
     }
 
@@ -64,7 +64,7 @@ public class Product : EntityBase
 
     private void ValidateName(string name)
     {
-        StringPropertieValidator.Validate(name, nameof(Name), 2);
+        StringPropertieValidator.Validate(name, nameof(Name), 3);
         Name = name;
     }
 }

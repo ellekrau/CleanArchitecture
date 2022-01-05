@@ -7,7 +7,7 @@ namespace CleanArquitecture.Domain.Test.Entities
 {
     public class CategoryTest
     {
-        [Fact(DisplayName = "Constructor with ID: Create with valid state")]
+        [Fact(DisplayName = "Constructor with ID: Valid parameters, cannot throw DomainExceptionValidation")]
         public void ConstructorWithId_WithValidParameters_ResultObjectWithValidState()
         {
             var action = () => new Category(10, "Category name");
@@ -16,7 +16,7 @@ namespace CleanArquitecture.Domain.Test.Entities
                 .NotThrow<DomainExceptionValidation>();
         }
 
-        [Fact(DisplayName = "Constructor with ID: ID negative must Throw DomainExceptionValidation")]
+        [Fact(DisplayName = "Constructor with ID: ID negative, throw DomainExceptionValidation")]
         public void ConstructorWithId_WithNegativeIdValue_ThrowDomainExceptionValidation()
         {
             var action = () => new Category(-1, "Category name");
@@ -26,7 +26,7 @@ namespace CleanArquitecture.Domain.Test.Entities
                 .WithMessage("Invalid ID value");
         }
 
-        [Fact(DisplayName = "Constructor: Create with valid state")]
+        [Fact(DisplayName = "Constructor: Valid parameters, cannot throw DomainExceptionValidation")]
         public void Constructor_WithValidParameters_ResultObjectWithValidState()
         {
             var action = () => new Category("Category name");
@@ -35,7 +35,7 @@ namespace CleanArquitecture.Domain.Test.Entities
                 .NotThrow<DomainExceptionValidation>();
         }
 
-        [Theory(DisplayName = "Constructor: NAME null or empty must throw DomainExceptionValidation")]
+        [Theory(DisplayName = "Constructor: NAME null or empty, throw DomainExceptionValidation")]
         [InlineData((""))]
         [InlineData(null)]
         public void Constructor_WithNullOrEmptyName_ThrowDomainExceptionValidation(string categoryName)

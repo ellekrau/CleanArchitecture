@@ -15,12 +15,12 @@
 
         public static void MinCharValidate(string propertieValue, string propertieName, int minChar)
         {
-            DomainExceptionValidation.When(propertieValue.Length < minChar, $"Min {minChar} characters in {propertieName.ToUpper()}");
+            DomainExceptionValidation.When(propertieValue?.Length < minChar, $"Min {minChar} characters in {propertieName.ToUpper()}");
         }
 
         public static void MaxCharValidate(string propertieValue, string propertieName, int maxChar)
         {
-            DomainExceptionValidation.When(propertieValue.Length > maxChar, $"Max {maxChar} characters in {propertieName.ToUpper()}");
+            DomainExceptionValidation.When(propertieValue?.Length > maxChar, $"Max {maxChar} characters in {propertieName.ToUpper()}");
         }
     }
 }

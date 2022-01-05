@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Infra.IoC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.WebUI", "CleanArchitecture.WebUI\CleanArchitecture.WebUI.csproj", "{F69D0487-6F5F-47B0-9F59-8BC699AF20BE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C8E0CCE6-8677-4BD5-8B72-7A0CA2446097}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C8E0CCE6-8677-4BD5-8B72-7A0CA2446097}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArquitecture.Domain.Test", "CleanArquitecture.Domain.Test\CleanArquitecture.Domain.Test.csproj", "{1B58482F-4C44-4E82-A780-91D3C9DFEB6A}"
 EndProject

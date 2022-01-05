@@ -6,6 +6,16 @@ namespace CleanArquitecture.Domain.Test.Entities
 {
     public class ProductTest
     {
+        [Fact(DisplayName = "Constructor with ID: Create category with valid state")]
+        public void ConstructorWithId_WithValidParameters_ResultObjectWithValidState()
+        {
+            var action = () => new Product(10, "Name", "Description", new decimal(200), 20, "Image");
+
+            action
+                .Should()
+                .NotThrow<DomainExceptionValidation>();
+        }
+
         [Fact(DisplayName = "Constructor with ID: ID negative must Throw DomainExceptionValidation")]
         public void ConstructorWithId_WithNegativeIdValue_ThrowDomainExceptionValidation()
         {

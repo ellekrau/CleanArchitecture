@@ -2,25 +2,25 @@
 {
     public class StringPropertieValidator
     {
-        public static void Validate(string propertie, int? minChar = null, int? maxChar = null)
+        public static void Validate(string propertieValue, string propertieName, int? minChar = null, int? maxChar = null)
         {
-            DomainExceptionValidation.When(string.IsNullOrEmpty(propertie), $"{propertie.ToUpper()} cannot be empty");
+            DomainExceptionValidation.When(string.IsNullOrEmpty(propertieValue), $"{propertieName.ToUpper()} cannot be empty");
 
             if (minChar.HasValue)
-                MinCharValidate(propertie, minChar.Value);
+                MinCharValidate(propertieValue,propertieName, minChar.Value);
 
             if (maxChar.HasValue)
-                MaxCharValidate(propertie, maxChar.Value);
+                MaxCharValidate(propertieValue, propertieName, maxChar.Value);
         }
 
-        public static void MinCharValidate(string propertie, int minChar)
+        public static void MinCharValidate(string propertieValue, string propertieName, int minChar)
         {
-            DomainExceptionValidation.When(propertie.Length < minChar, $"Minimum {minChar} characters in {propertie.ToUpper()}");
+            DomainExceptionValidation.When(propertieValue.Length < minChar, $"Min {minChar} characters in {propertieName.ToUpper()}");
         }
 
-        public static void MaxCharValidate(string propertie, int maxChar)
+        public static void MaxCharValidate(string propertieValue, string propertieName, int maxChar)
         {
-            DomainExceptionValidation.When(propertie.Length > maxChar, $"Minimum {maxChar} characters in {propertie.ToUpper()}");
+            DomainExceptionValidation.When(propertieValue.Length > maxChar, $"Max {maxChar} characters in {propertieName.ToUpper()}");
         }
     }
 }

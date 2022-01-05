@@ -26,7 +26,7 @@ public sealed class Category : EntityBase
 
     private void ValidateName(string name)
     {
-        StringPropertieValidator.Validate(name);
+        StringPropertieValidator.Validate(name, nameof(Name), 3);
         Name = name;
     }
 }

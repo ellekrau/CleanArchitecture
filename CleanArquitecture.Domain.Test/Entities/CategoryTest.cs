@@ -46,7 +46,7 @@ namespace CleanArquitecture.Domain.Test.Entities
                 .WithMessage("NAME cannot be empty");
         }
 
-        [Fact]
+        [Fact(DisplayName = "Constructor: NAME must have at least 3 characters")]
         public void Constructor_WithFewCaractereInName_ThrowDomainExceptionValidation()
         {
             var action = () => new Category("na");

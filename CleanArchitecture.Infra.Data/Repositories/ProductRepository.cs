@@ -27,7 +27,9 @@ namespace CleanArchitecture.Infra.Data.Repositories
 
         public async Task<Product?> GetByIdAsync(int? id) =>
             await _context.Products.FindAsync(id);
-        
+
+        public async Task<Product?> GetProductCategoryAsync(int? id) =>
+            await _context.Products.Include(i => i.Category).SingleOrDefaultAsync(s => s.Id == id); //* Eager loading *//
 
         public async Task<Product> RemoveAsync(Product product)
         {

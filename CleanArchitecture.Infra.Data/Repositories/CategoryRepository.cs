@@ -5,28 +5,36 @@ namespace CleanArchitecture.Infra.Data.Repositories
 {
     public class CategoryRepository : ICategoryRepository
     {
+        private readonly ApplicationDbContext _context;
 
-        public Task<Category> CreateAsync(Category category)
+        public CategoryRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<Category> CreateAsync(Category category)
+        {
+            _context.Add(category);
+            await _context.SaveChangesAsync();
+            return category;
+        }
+
+        public async Task<IEnumerable<Category>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Category>> GetAllAsync()
+        public async Task<Category> GetByIdAsync(int? id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Category> GetByIdAsync(int? id)
+        public async Task<Category> RemoveAsync(Category category)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Category> RemoveAsync(Category category)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Category> UpdateAsync(Category category)
+        public async Task<Category> UpdateAsync(Category category)
         {
             throw new NotImplementedException();
         }

@@ -1,5 +1,6 @@
 ﻿using CleanArchitecture.Domain.Entities;
 using CleanArchitecture.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Infra.Data.Repositories
 {
@@ -16,27 +17,32 @@ namespace CleanArchitecture.Infra.Data.Repositories
         {
             _context.Add(category);
             await _context.SaveChangesAsync();
+
             return category;
         }
 
-        public async Task<IEnumerable<Category>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<Category>> GetAllAsync() =>
+            await _context.Categories.ToListAsync();
+            
 
-        public async Task<Category> GetByIdAsync(int? id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Category?> GetByIdAsync(int? id) =>
+            await _context.Categories.FindAsync(id);
+        
 
         public async Task<Category> RemoveAsync(Category category)
         {
-            throw new NotImplementedException();
+            _context.Remove(category);
+            await _context.SaveChangesAsync();
+
+            return category;
         }
 
         public async Task<Category> UpdateAsync(Category category)
         {
-            throw new NotImplementedException();
+            _context.Update(category);
+            await _context.SaveChangesAsync();
+
+            return category;
         }
     }
 }

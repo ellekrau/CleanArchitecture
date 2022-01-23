@@ -11,7 +11,7 @@ namespace CleanArchitecture.Infra.Data.EntitiesConfiguration
             entityTypeBuilder.HasKey(h => h.Id);
             entityTypeBuilder.Property(p => p.Name).HasMaxLength(100).IsRequired();
 
-            PupulateWithDefaultValues(entityTypeBuilder);
+            //PupulateWithDefaultValues(entityTypeBuilder);
         }
 
         private static void PupulateWithDefaultValues(EntityTypeBuilder<Category> entityTypeBuilder)

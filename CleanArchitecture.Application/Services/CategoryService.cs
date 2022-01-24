@@ -37,7 +37,7 @@ namespace CleanArchitecture.Application.Services
             return _mapper.Map<CategoryDTO>(category);
         }
 
-        public async Task<IEnumerable<CategoryDTO>> GetCategories()
+        public async Task<IEnumerable<CategoryDTO>> GetAll()
         {
             var categories = await _categoryRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<CategoryDTO>>(categories);

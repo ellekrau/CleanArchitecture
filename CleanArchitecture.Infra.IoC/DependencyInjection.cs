@@ -9,6 +9,17 @@ namespace CleanArchitecture.Infra.IoC
 {
     public static class DependencyInjection
     {
+        public static IServiceCollection AddApplication(this IServiceCollection services)
+        {
+            AddAutoMapper(services);
+            return services;
+        }
+
+        private static void AddAutoMapper(IServiceCollection services)
+        {
+            //services.AddAutoMapper(typeof());
+        }
+
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             AddDbContext(services, configuration);

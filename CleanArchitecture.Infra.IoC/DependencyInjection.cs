@@ -1,4 +1,7 @@
-﻿using CleanArchitecture.Domain.Interfaces;
+﻿using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Mappings;
+using CleanArchitecture.Application.Services;
+using CleanArchitecture.Domain.Interfaces;
 using CleanArchitecture.Infra.Data;
 using CleanArchitecture.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -12,12 +15,19 @@ namespace CleanArchitecture.Infra.IoC
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             AddAutoMapper(services);
+            AddServices(services);
             return services;
+        }
+
+        private static void AddServices(IServiceCollection services)
+        {
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
         }
 
         private static void AddAutoMapper(IServiceCollection services)
         {
-            //services.AddAutoMapper(typeof());
+            services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
         }
 
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)

@@ -9,7 +9,7 @@ public class Product : EntityBase
     public int Stock { get; private set; }
     public string? Image { get; private set; }
 
-    public int CategoryId { get; set; }
+    public int CategoryId { get; private set; }
     public Category? Category { get; set; }
 
     public Product(string name, string description, decimal price, int stock, string image)
@@ -26,6 +26,11 @@ public class Product : EntityBase
     public void Update(string name, string description, decimal price, int stock, string image, int categoryId)
     {
         ValidateDomain(name, description, price, stock, image);
+        CategoryId = categoryId;
+    }
+
+    public void SetCategoryId(int categoryId)
+    {
         CategoryId = categoryId;
     }
 

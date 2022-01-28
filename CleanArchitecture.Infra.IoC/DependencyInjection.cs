@@ -18,6 +18,13 @@ namespace CleanArchitecture.Infra.IoC
             AddServices(services);
             return services;
         }
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        {
+            AddDbContext(services, configuration);
+            AddRepositories(services);
+
+            return services;
+        }
 
         private static void AddServices(IServiceCollection services)
         {
@@ -28,14 +35,6 @@ namespace CleanArchitecture.Infra.IoC
         private static void AddAutoMapper(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
-        }
-
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
-        {
-            AddDbContext(services, configuration);
-            AddRepositories(services);
-
-            return services;
         }
 
         private static void AddRepositories(IServiceCollection services)

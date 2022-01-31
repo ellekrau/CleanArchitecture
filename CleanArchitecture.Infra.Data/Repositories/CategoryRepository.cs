@@ -23,11 +23,9 @@ namespace CleanArchitecture.Infra.Data.Repositories
 
         public async Task<IEnumerable<Category>> GetAllAsync() =>
             await _context.Categories.ToListAsync();
-            
 
         public async Task<Category?> GetByIdAsync(int? id) =>
             await _context.Categories.FindAsync(id);
-        
 
         public async Task<Category> RemoveAsync(Category category)
         {

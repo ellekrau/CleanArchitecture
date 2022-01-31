@@ -24,7 +24,6 @@ namespace CleanArchitecture.Infra.Data.Repositories
         public async Task<IEnumerable<Product>> GetAllAsync() =>
             await _context.Products.ToListAsync();
 
-
         public async Task<Product?> GetByIdAsync(int? id) =>
             await _context.Products.FindAsync(id);
 

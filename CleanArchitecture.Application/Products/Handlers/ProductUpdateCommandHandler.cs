@@ -20,7 +20,7 @@ namespace CleanArchitecture.Application.Products.Handlers
         {
             var product = _productRepository.GetByIdAsync(request.Id).Result;
 
-            if (product == null)
+            if (product is null)
                 throw new ApplicationException(ProductNotFoundMessage);
 
             product.Update(request.Name, request.Description, request.Price, request.Stock, request.Image, request.CategoryId);

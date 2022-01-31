@@ -26,13 +26,18 @@ public class Product : EntityBase
     public void Update(string name, string description, decimal price, int stock, string image, int categoryId)
     {
         ValidateDomain(name, description, price, stock, image);
-        CategoryId = categoryId;
+        SetCategoryId(categoryId);
     }
 
     public void SetCategoryId(int categoryId)
     {
-        DomainExceptionValidation.When(categoryId <= 0, InvalidValueMessage(nameof(CategoryId)));
+        ValidateCategoryId(categoryId);
         CategoryId = categoryId;
+    }
+
+    private static void ValidateCategoryId(int categoryId)
+    {
+        DomainExceptionValidation.When(categoryId <= 0, InvalidValueMessage(nameof(CategoryId)));
     }
 
     private void ValidateDomain(string name, string description, decimal price, int stock, string image)

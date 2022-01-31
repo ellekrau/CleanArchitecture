@@ -31,6 +31,7 @@ public class Product : EntityBase
 
     public void SetCategoryId(int categoryId)
     {
+        DomainExceptionValidation.When(categoryId <= 0, InvalidValueMessage(nameof(CategoryId)));
         CategoryId = categoryId;
     }
 
@@ -51,7 +52,7 @@ public class Product : EntityBase
 
     private void ValidateStock(int stock)
     {
-        DomainExceptionValidation.When(stock < 0, InvalidValueMessage(nameof(stock)));
+        DomainExceptionValidation.When(stock < 0, InvalidValueMessage(nameof(Stock)));
         Stock = stock;
     }
 

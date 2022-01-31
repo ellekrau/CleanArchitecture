@@ -127,5 +127,44 @@ namespace CleanArquitecture.Domain.Test.Entities
             action.Should()
                 .NotThrow<DomainExceptionValidation>();
         }
+
+        [Theory(DisplayName = "SetCategoryId: Invalid value in CATEGORYID, throw DomainExceptionValidation")]
+        [InlineData(0)]
+        [InlineData(-1)]
+        public void SetCategoryId_WithInvalidValueInCategoryId_ThrowDomainExceptionValidation(int categoryId)
+        {
+            var product = new Product("Name", "Description", new decimal(30), 20, string.Empty);
+
+            var action = () => product.SetCategoryId(categoryId);
+
+            action.Should()
+                .Throw<DomainExceptionValidation>()
+                .WithMessage("Invalid value in CATEGORYID");
+        }
+
+        [Fact(DisplayName = "SetCategoryId: Valid value in CATEGORYID, cannot throw DomainExceptionValidation")]
+        public void SetCategoryId_WithValidValueInCategoryId_NotThrowDomainExceptionValidation()
+        {
+            var product = new Product("Name", "Description", new decimal(30), 20, string.Empty);
+            var categoryId = 10;
+
+            var action = () => product.SetCategoryId(categoryId);
+
+            action.Should()
+                .NotThrow<DomainExceptionValidation>();
+
+            product.CategoryId.Should().Be(categoryId);
+        }
+
+        [Fact(DisplayName = "SetCategoryId: Valid value in CATEGORYID, sucessfull propertie change")]
+        public void SetCategoryId_WithValidValueInCategoryId_ResultSuccessfulPropertieChange()
+        {
+            var product = new Product("Name", "Description", new decimal(30), 20, string.Empty);
+            var categoryId = 10;
+
+            product.SetCategoryId(categoryId);
+
+            product.CategoryId.Should().Be(categoryId);
+        }
     }
 }

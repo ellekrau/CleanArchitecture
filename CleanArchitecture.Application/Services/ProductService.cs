@@ -53,11 +53,6 @@ namespace CleanArchitecture.Application.Services
             return _mapper.Map<ProductDTO>(result);
         }
 
-        public async Task<ProductDTO> GetProductCategory(int? id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task Update(ProductDTO productDTO)
         {
             var productUpdateCommand = _mapper.Map<ProductUpdateCommand>(productDTO);

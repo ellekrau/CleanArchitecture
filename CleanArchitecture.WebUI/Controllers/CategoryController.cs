@@ -67,5 +67,25 @@ namespace CleanArchitecture.WebUI.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id is null) return NotFound();
+
+            await _categoryService.Delete(id);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id is null) return NotFound();
+
+            var categoryDTO = await _categoryService.GetById(id);
+
+            return View(categoryDTO);
+        }
     }
 }

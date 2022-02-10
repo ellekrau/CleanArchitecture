@@ -44,7 +44,7 @@ namespace CleanArchitecture.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit (int? id)
         {
-            if (id is null)
+            if (id is null) 
                 return NotFound();
 
             var productDTO = await _productService.GetById(id);

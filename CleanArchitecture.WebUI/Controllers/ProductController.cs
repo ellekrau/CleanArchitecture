@@ -30,6 +30,7 @@ namespace CleanArchitecture.WebUI.Controllers
             return View();
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Create(ProductDTO productDTO)
         {
@@ -37,6 +38,32 @@ namespace CleanArchitecture.WebUI.Controllers
                 return View(productDTO);
 
             await _productService.Create(productDTO);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit (int? id)
+        {
+            if (id is null)
+                return NotFound();
+
+            var productDTO = await _productService.GetById(id);
+
+            if (productDTO is null)
+                return NotFound();
+
+            ViewBag.CategoryId = new SelectList(await _categoryService.GetAll(), "Id", "Name", productDTO.CategoryId);
+
+            return View(productDTO);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(ProductDTO productDTO)
+        {
+            if (!ModelState.IsValid)
+                return View(productDTO);
+
+            await _productService.Update(productDTO);
             return RedirectToAction(nameof(Index));
         }
     }

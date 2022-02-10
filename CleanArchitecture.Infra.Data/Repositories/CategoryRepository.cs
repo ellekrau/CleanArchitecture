@@ -15,7 +15,7 @@ namespace CleanArchitecture.Infra.Data.Repositories
 
         public async Task<Category> CreateAsync(Category category)
         {
-            _context.Add(category);
+            _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
             return category;
@@ -29,7 +29,7 @@ namespace CleanArchitecture.Infra.Data.Repositories
 
         public async Task<Category> RemoveAsync(Category category)
         {
-            _context.Remove(category);
+            _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
 
             return category;
@@ -37,7 +37,7 @@ namespace CleanArchitecture.Infra.Data.Repositories
 
         public async Task<Category> UpdateAsync(Category category)
         {
-            _context.Update(category);
+            _context.Categories.Update(category);
             await _context.SaveChangesAsync();
 
             return category;

@@ -8,8 +8,8 @@ namespace CleanArchitecture.Application.Mappings
     {
         public CommandToDTOMappingProfile()
         {
-            CreateMap<ProductCreateCommand, ProductDTO>();
-            CreateMap<ProductUpdateCommand, ProductDTO>();
+            CreateMap<ProductCreateCommand, ProductDTO>().ReverseMap();
+            CreateMap<ProductUpdateCommand, ProductDTO>().ReverseMap();
         }
     }
 }

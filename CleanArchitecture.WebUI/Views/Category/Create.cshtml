@@ -8,12 +8,12 @@
 
 <form asp-action="Create" method="post">
     <div class="form-horizontal">
-        @*<div asp-validation-summary="All" class="text-danger"></div> Validacao do form todo*@
+       <hr />
         <div class="form-group">
             <label asp-for="Name" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger" ></span>@*Validacao especifica do Name*@
+                <span asp-validation-for="Name" class="text-danger" ></span>
             </div>
             <br />
                 <input type="submit" value="Create" class="btn btn-success" />

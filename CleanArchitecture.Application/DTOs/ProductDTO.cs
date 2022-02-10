@@ -21,7 +21,7 @@ namespace CleanArchitecture.Application.DTOs
         public string? Description { get; set; }
 
         [Required(ErrorMessage = "Price is required")]
-        //[Column(TypeName = "decimal(18,2)")]
+        [Column(TypeName = "decimal(18,2)")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
         [DataType(DataType.Currency)]
         [Display(Name = "Price")]

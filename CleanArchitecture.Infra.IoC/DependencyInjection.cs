@@ -16,6 +16,7 @@ namespace CleanArchitecture.Infra.IoC
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
+            services.AddAutoMapper(typeof(CommandToDTOMappingProfile));
             AddServices(services);
 
             var handlersAssembly = AppDomain.CurrentDomain.Load("CleanArchitecture.Application");

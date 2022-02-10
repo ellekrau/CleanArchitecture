@@ -29,7 +29,7 @@ namespace CleanArchitecture.Infra.Data.Repositories
 
         public async Task<Product> RemoveAsync(Product product)
         {
-            _context.Products.Add(product);
+            _context.Products.Remove(product);
             await _context.SaveChangesAsync();
 
             return product;

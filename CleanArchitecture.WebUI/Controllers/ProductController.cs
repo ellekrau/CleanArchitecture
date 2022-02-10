@@ -66,5 +66,15 @@ namespace CleanArchitecture.WebUI.Controllers
             await _productService.Update(productDTO);
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id is null) return NotFound();
+
+            await _productService.Delete(id);
+
+           return RedirectToAction(nameof(Index));
+        }
     }
 }
